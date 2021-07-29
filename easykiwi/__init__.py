@@ -11,3 +11,4 @@ to the most common messaging techniques.
 __version__ = '0.1'
 
 from .core import Kiwi
+from .cli import kiwi_cli as cli

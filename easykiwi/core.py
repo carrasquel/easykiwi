@@ -72,8 +72,9 @@ class Kiwi(Singleton):
 
             self.comm.add_broadcast_subscriber(broadcast)
 
-    def run(self):
+    def run(self, remote='localhost'):
 
+        self.remote = remote
         self.comm = kiwipy.connect("amqp://{}".format(self.remote))
 
         self._add_rpcs()
