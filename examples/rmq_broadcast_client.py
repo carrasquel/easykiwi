@@ -1,13 +1,15 @@
 # -*- coding: utf-8 -*-
 import sys
 
-import kiwipy
+from easykiwi import KiwiClient
 
 # pylint: disable=invalid-name
 
 body = ' '.join(sys.argv[1:]) or '___'
 
-with kiwipy.connect('amqp://127.0.0.1') as comm:
+client = KiwiClient()
+
+with client.connect('amqp://127.0.0.1') as comm:
     # send message with different sender and subject
 
     # listen by two subscriber
