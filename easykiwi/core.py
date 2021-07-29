@@ -44,11 +44,12 @@ class Kiwi(Singleton):
         
         return decorator
 
-    def add_broadcast(self):
+    def add_broadcast(self, filters=[]):
 
         def decorator(f):
 
-            self._broadcasts.append(f)
+            broadcast = (f, filters)
+            self._broadcasts.append(broadcast)
 
             return f
         
@@ -68,9 +69,18 @@ class Kiwi(Singleton):
 
     def _add_broadcasts(self):
 
-        for broadcast in self._broadcasts:
+        for f, filters in self._broadcasts:
 
-            self.comm.add_broadcast_subscriber(broadcast)
+            if filters:
+                filtered = kiwipy.BroadcastFilter(f)
+                
+                for filter in filters:
+                    
+                    filtered.add_subject_filter(filter)
+                
+                self.comm.add_broadcast_subscriber(filtered)
+            else:
+                self.comm.add_broadcast_subscriber(f)
 
     def run(self, remote='localhost'):
 
