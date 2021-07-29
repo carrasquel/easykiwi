@@ -1,6 +1,6 @@
 # Easykiwi
 
-Easykiwi is a Python Framework for developing Queue Messaging Application in a declarative approach
+Easykiwi is a Python Framework for developing Queue Messaging Application in a declarative approach, it depends on the **kiwipy** python library, in fact it turns this library into a container friendly framework.
 
 ## Requirements
 
@@ -64,4 +64,3 @@ kiwi run --remote 127.0.0.1
 ```
 
 This command is a more container friendly approach to run this messaging service.
-
