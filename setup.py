@@ -7,7 +7,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="Easykiwi",
-    version="1.0",
+    version="1.1",
     author="Nelson Carrasquel",
     author_email="carrasquel@outlook.com",
     description="Easykiwi is a Framework for Queue Messaging Application Development for Python and RabbitMQ.",
