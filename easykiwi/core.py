@@ -13,11 +13,11 @@ class Kiwi(Singleton):
 
     def __init__(self):
 
+        self.remote = '127.0.0.1'
+        
         self._rpcs = list()
         self._tasks = list()
         self._broadcasts = list()
-
-        self._remote = '127.0.0.1'
 
     def add_rpc(self, name=None):
 
@@ -82,10 +82,21 @@ class Kiwi(Singleton):
             else:
                 self.comm.add_broadcast_subscriber(f)
 
-    def run(self, remote='localhost'):
+    def run(self, remote='localhost', secured=False):
 
         self.remote = remote
-        self.comm = kiwipy.connect("amqp://{}".format(self.remote))
+
+        if "amqp://" in self.remote:
+            url = self.remote
+        elif "amqps://" in self.remote:
+            url = self.remote
+        else:
+            url = 'amqp://{}'.format(self.remote)
+
+        if secured:
+            url = url.replace("amqp://", "amqps://")
+            
+        self.comm = kiwipy.connect(url)
 
         self._add_rpcs()
         self._add_tasks()

@@ -1,3 +1,5 @@
 kiwipy
+aio-pika
+pyyaml
 Click==7.0
 python-dotenv==0.18.0

@@ -7,7 +7,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="Easykiwi",
-    version="1.1",
+    version="1.3",
     author="Nelson Carrasquel",
     author_email="carrasquel@outlook.com",
     description="Easykiwi is a Framework for Queue Messaging Application Development for Python and RabbitMQ.",
@@ -24,8 +24,10 @@ setuptools.setup(
     },
     install_requires=[
         'kiwipy',
+        'aio-pika',
+        'pyyaml',
         'Click==7.0',
-        'python-dotenv==0.18.0'
+        'python-dotenv==0.18.0',
     ],
     classifiers=[
         "Programming Language :: Python :: 3",

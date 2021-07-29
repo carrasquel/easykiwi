@@ -9,7 +9,7 @@ body = ' '.join(sys.argv[1:]) or '___'
 
 client = KiwiClient()
 
-with client.connect('amqp://127.0.0.1') as comm:
+with client.connect('127.0.0.1') as comm:
     # send message with different sender and subject
 
     # listen by two subscriber
