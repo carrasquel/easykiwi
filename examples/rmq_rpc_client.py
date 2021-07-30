@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from easykiwi import KiwiClient, client
+from easykiwi import KiwiClient
 
 # pylint: disable=invalid-name
 
